@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>clock</title>
+</head>
+<style>
+div {
+  background-color: black;
+  width: 300px;
+  border: 15px solid white;
+  padding: 50px;
+  margin: 20px;
+  border-radius: 40px;
+}
+body{
+  background-color:black;
+}
+
+#clock{
+  text-align:center;
+  font-size:50px;
+  color:white;
+  font-family:lato;
+}
+
+</style>
+
+<body>
+
+ <center><div id="clock">00:00:00</div>/<center>
+
+</body>
+
+<script>
+setInterval(displayclock, 100)
+function displayclock(){
+var time = new Date();
+var hours = time.getHours();
+var Minutes = time.getMinutes();
+var Seconds = time.getSeconds();
+
+var ampm = 'AM';
+
+if(Seconds < 10){
+Seconds = '0'+Seconds
+}
+if(hours < 10){
+hours = '0'+Hours
+}
+if(Minutes < 10){
+Minutes = '0'+Minutes
+}
+
+if(hours > 12){
+hours = hours - 12
+ampm = 'PM'
+}
+
+document.getElementById('clock').innerHTML = hours + ':' + Minutes + ':' + Seconds + ': '+ampm
+
+}
+
+</script>
+</html>
